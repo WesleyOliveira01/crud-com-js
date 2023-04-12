@@ -1,12 +1,11 @@
-import { apiPost } from "./cliente-service.js";
+import { apiPost,apiDelete } from "./cliente-service.js";
 
-export const nome = document.querySelector('#nome');
-export const email = document.querySelector('#email');
+export const nome = document.querySelector('[data-nome]');
+export const email = document.querySelector('[data-email]');
 const container = document.querySelector('[data-tabela]')
 const form = document.querySelector("[data-form]")
 
-
-export const criaCliente = (cliente) => {
+export const criaCliente = (cliente,id) => {
     const novaLinha = document.createElement('tr');
     const conteudo = `<td class="td" data-td>${cliente.nome}</td>
     <td>${cliente.email}</td>
@@ -18,12 +17,22 @@ export const criaCliente = (cliente) => {
     </td>`
 
     novaLinha.innerHTML = conteudo
-
+    novaLinha.dataset.id = id
     container.appendChild(novaLinha)
 }
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     apiPost()
+    window.location.href = '../telas/cadastro_concluido.html';
 })
 
+container.addEventListener('click', (e) =>{
+    const btnExcluir = e.target.className == 'botao-simples botao-simples--excluir';
+
+    if(btnExcluir){
+        const linhaCliente = e.target.closest('[data-id]')
+        let id = linhaCliente.dataset.id
+        apiDelete(id)
+    }
+})

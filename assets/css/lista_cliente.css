@@ -3,6 +3,10 @@
     padding-left: 1rem;
 }
 
+.botao-simples--excluir{
+	cursor: pointer;
+}
+
 @media(min-width: 1200px) {
 	.clientes-container {
 		padding-left: calc((100vw - 900px)/2);

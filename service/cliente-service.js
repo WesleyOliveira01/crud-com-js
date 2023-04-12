@@ -5,8 +5,7 @@ const apiGet = async () =>{
     const response = await fetch(url)
 
     const data = await response.json()
-
-    data.map((cliente) => criaCliente(cliente))
+    data.map((cliente) => criaCliente(cliente, cliente.id))
 }
 
 export const apiPost = async () =>{
@@ -22,11 +21,16 @@ export const apiPost = async () =>{
     })
 
     const data = await response.json()
-    controler.criaCliente(data)
+
+    criaCliente(data, data.id)
 }
 apiGet()
 
-
+export const apiDelete = async (id) =>{
+    const response = await fetch(`${url}/${id}`, {
+        method: "DELETE",
+    })
+}
 
 
 
