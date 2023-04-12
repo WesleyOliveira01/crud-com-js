@@ -7,13 +7,19 @@
     },
     {
       "nome": "wesley",
-      "email": "wesley@cliente",
+      "email": "wesley@email.com",
       "id": 2
     },
     {
       "nome": "teste",
       "email": "teste@teste",
       "id": 3
+    },
+    {
+      "nome": "teste2",
+      "email": "teste2@gmail.com",
+      "id": 4
     }
   ]
 }
+
