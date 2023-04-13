@@ -27,12 +27,15 @@ form.addEventListener("submit", (e) => {
     window.location.href = '../telas/cadastro_concluido.html';
 })
 
-container.addEventListener('click', (e) =>{
-    const btnExcluir = e.target.className == 'botao-simples botao-simples--excluir';
+form.addEventListener('click',(e) =>{
+    e.preventDefault()
+
+    const btnExcluir = e.target.className = 'botao-simples botao-simples--excluir'
 
     if(btnExcluir){
-        const linhaCliente = e.target.closest('[data-id]')
-        let id = linhaCliente.dataset.id
+        const linha = e.target.closest('[data-id]')
+        let id = linha.dataset.id
         apiDelete(id)
     }
+   
 })

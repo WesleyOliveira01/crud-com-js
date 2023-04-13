@@ -24,7 +24,7 @@ export const apiPost = async () =>{
 
     criaCliente(data, data.id)
 }
-apiGet()
+
 
 export const apiDelete = async (id) =>{
     const response = await fetch(`${url}/${id}`, {
@@ -32,8 +32,7 @@ export const apiDelete = async (id) =>{
     })
 }
 
-
-
+apiGet()
 
 
 
